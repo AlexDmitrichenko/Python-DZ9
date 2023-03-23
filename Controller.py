@@ -3,20 +3,30 @@ import model
 
 def start():
     while True:
-        # pb = model.getPhoneBook()
+        pb = model.getPhoneBook()
         choice = view.mainMenu()
         match choice:
             case 1:
                 model.openFile()
+                view.showMessage('Файл успешно открыт')
             case 2:
-                pass
+                model.saveFile()
+                view.showMessage('Файл успешно сохранен')
             case 3:
-                pb = model.getPhoneBook()
                 view.showContacs(pb, 'Телефонная книга пуста или не открыта')
             case 4:
-                contact = view.addContact()
-                model.addContact(contact)
+                model.addContact(view.addContact())
             case 5:
+                if view.showContacs(pb, 'Телефонная книга пуста или не открыта'):
+                    index = view.inputIndex('Введите порядковый номер изменяемого контакта: ')
+                    contact = view.changeContact(pb, index)
+                    model.changeContact(contact, index)
+                    view.showMessage(f'Контакт {model.getPhoneBook()[index-1].get("name")} успешно изменен!')
+            case 6:
+                search = view.inputSearch('Введите искомый элемент: ')
+                result = model.findContact(search)
+                view.showContacs(result, 'Контакты не найдены')
+            case 7:
                 pass
-            case _:
-                pass
+            case 8:
+                return
