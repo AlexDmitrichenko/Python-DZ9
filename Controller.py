@@ -27,6 +27,10 @@ def start():
                 result = model.findContact(search)
                 view.showContacs(result, 'Контакты не найдены')
             case 7:
-                pass
+                view.showContacs(pb, 'Телефонная книга пуста или не открыта')
+                index = view.inputIndex('Введите порядковый номер удаляемого контакта: ')
+                contact = view.deleteContact(pb, index)
+                model.deleteContact(contact, index)
+                view.showMessage('Контакт успешно удален!')
             case 8:
                 return
