@@ -37,3 +37,6 @@ def findContact(search: str) -> list[dict]:
                 result.append(contact)
     return result
 
+def deleteContact(contact: dict, index: int):
+    phoneBook.pop(index-1)
+   
