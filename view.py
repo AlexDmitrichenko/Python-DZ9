@@ -38,7 +38,7 @@ def changeContact(book: list[dict], index: int):
     contact = addContact()
     return {'name': contact.get('name') if contact.get('name') else book[index-1].get('name'),
         'phone': contact.get('phone') if contact.get('phone') else book[index-1].get('phone'),
-        'phone': contact.get('comment') if contact.get('comment') else book[index-1].get('comment')}
+        'comment': contact.get('comment') if contact.get('comment') else book[index-1].get('comment')}
     
 def showMessage(message: str):
     print('-'*20)
