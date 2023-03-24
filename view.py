@@ -22,7 +22,7 @@ def showContacs(book: list[dict], errorMessage: str):
         return True
 
 def addContact () -> dict:
-    name = input('Введите Фамилию и Имя через: ')
+    name = input('Введите Фамилию и Имя: ')
     phone = input('Введите номер телефона: ')
     comment = input('Введите комментарий: ')
     return {'name': name, 'phone': phone, 'comment': comment}
