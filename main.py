@@ -1,4 +1,4 @@
-import Controller
+import controller
 
 if __name__ == '__main__':
-    Controller.start()
+    controller.start()
